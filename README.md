@@ -1,9 +1,9 @@
-#I2C Master Controller
+# I2C Master Controller
 
 A fully parameterized I2C Master core simulated with the help of iverilog and GTKwave.
 Designed with clock-domain isolation with 4 phase state machine to follow Philips I2C specification.
 
-##Design Highlights
+## Design Highlights
 * **Clock Domain Split:**  Fast CPU commands (i.e `start` , `address`) are caught by 50Mhz system clock, while protocol operates on a slower clock pulse.
 
 * **4-Phase State Machine:**  Since the operating frequency of I2C master is 100kHz or 400Khz(in Fast Mode) , we use a prescaled frequency (1.6Mhz) due to which each state takes 4 clock pulse(relative to prescalar frequency) to complete its processes. Thus, each phase works on 400kHz of frequency. This architecture helps us prevent metastability during read cycles by having time for setup/holding data.
